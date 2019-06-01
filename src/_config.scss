@@ -1,0 +1,93 @@
+$mdc-theme-primary: #546e7a;
+$mdc-theme-secondary: #fbc02d;
+
+@import "@material/theme/_variables.scss";
+
+/* all palette vars from mdc theme */
+/*
+$mdc-theme-primary
+$mdc-theme-on-primary
+$mdc-theme-secondary
+$mdc-theme-on-secondary
+$mdc-theme-background
+$mdc-theme-on-background
+$mdc-theme-surface
+$mdc-theme-on-surface
+$mdc-theme-error
+$mdc-theme-on-error
+*/
+/* end palette vars */
+
+$loader-size: 100px;
+
+// low-res breakpoints
+$break-point-lr-min: 239px;
+$break-point-lr-med: 359px;
+$break-point-lr-max: 400px;
+// medium-res breakpoints
+$break-point-mr-min: 680px;
+$break-point-mr-med: 839px;
+$break-point-mr-max: 980px;
+// high-res breakpoints
+$break-point-hr-min: 1280px;
+$break-point-hr-med: 1599px;
+$break-point-hr-max: 1919px;
+
+//page variables
+$border-2-gray-1: 2px solid $mdc-theme-secondary;
+$border-1-gray-1: 1px solid $mdc-theme-secondary;
+$app-bar-height: 60px;
+$content-width: 650px;
+$drawer-width: 300px;
+$header-icon-width: 50px;
+$border-2-gray: 2px solid $mdc-theme-secondary;
+$border-1-gray: 1px solid $mdc-theme-secondary;
+
+//text size
+$text-size-normal: 1rem;
+$text-line-height-normal: 1.25rem;
+$text-size-small: 0.875rem;
+$text-line-height-small: 1.125rem;
+$text-size-smaller: 0.825rem;
+$text-line-height-smaller: 1rem;
+$text-size-tiny: 0.75rem;
+$text-line-height-tiny: 0.95rem;
+
+/// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+  @return $number;
+}
+
+%no-select {
+	-webkit-touch-callout: none; /* iOS Safari */
+		-webkit-user-select: none; /* Safari */
+		 -khtml-user-select: none; /* Konqueror HTML */
+			 -moz-user-select: none; /* Firefox */
+				-ms-user-select: none; /* Internet Explorer/Edge */
+						user-select: none; /* Non-prefixed version, currently
+																	supported by Chrome and Opera */
+}
+
+:export {
+	_breakPointHigh: strip-unit($break-point-hr-min);
+	_breakPointMediumHigh: strip-unit($break-point-mr-max);
+	_breakPointMediumLow: strip-unit($break-point-mr-min);
+	_breakPointLow: strip-unit($break-point-lr-max);
+
+	breakPointHigh: $break-point-hr-min;
+	breakPointMediumHigh: $break-point-mr-max;
+	breakPointMediumLow: $break-point-mr-min;
+	breakPointLow: $break-point-lr-max;
+
+	all: [
+		strip-unit($break-point-hr-min),
+		strip-unit($break-point-mr-max),
+		strip-unit($break-point-mr-min),
+		strip-unit($break-point-lr-max),
+	];
+}

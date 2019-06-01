@@ -1,0 +1,97 @@
+@import "../../_config.scss";
+@import "@material/image-list/mdc-image-list";
+@import "@material/slider/mdc-slider";
+@import "@material/react-checkbox/index";
+@import "@material/react-icon-button/index";
+@import "@material/react-fab/index";
+@import "@material/react-list/index";
+@import "@material/react-card/index";
+@import "@material/react-chips/index";
+@import "@material/react-linear-progress/index";
+@import "@material/react-menu-surface/index";
+@import "@material/react-drawer/index";
+@import "@material/react-snackbar/index";
+@import "@material/react-switch/index";
+@import "@material/react-tab-bar/index";
+@import "@material/react-tab-scroller/index";
+@import "@material/react-tab/index";
+@import "@material/react-tab-indicator/index";
+@import "@material/react-layout-grid/index";
+@import "@material/react-select/index";
+
+/* mdc override */
+.mdc-card {
+	h1, h2, h3, h4, h5, h6 {
+		margin: 0;
+	}
+	/* card content padding */
+	.mdc-card__body {
+		padding: 1rem;
+	}
+	.mdc-card__text-over-media {
+		color: #fff;
+	}
+	.mdc-card__row {
+		flex-direction: row;
+		.mdc-card__media:first-child {
+			border-top-right-radius: 0;
+		}
+		.mdc-card__media:last-child {
+			border-top-left-radius: 0;
+		}
+	}
+}
+.mdc-list-item {
+	cursor: default;
+}
+.mdc-image-list--standard {
+	@include mdc-image-list-standard-columns(5);
+}
+.mdc-image-list--masonry {
+	@include mdc-image-list-masonry-columns(5);
+}
+
+/* reac-select classes */
+.react-select-container:not(.react-select--is-disabled) {
+	.react-select__control {
+		background-color: whitesmoke;
+	}
+}
+.react-select-container {
+	.react-select__control {
+		border-width: 0 0 1px 0;
+		border-style: none none solid none;
+		box-shadow: none;
+		width: 100%;
+		@extend .mdc-select;
+	}
+	.react-select__indicator {
+		
+	}
+	.react-select__dropdown-indicator {
+		* {
+			visibility: hidden;
+		}
+	}
+	.react-select__dropdown-indicator::after {
+		content: '';
+		@extend .mdc-select__dropdown-icon;
+	}
+	.react-select__indicator-separator {
+		//display: none;
+	}
+	.react-select__menu {
+		border: 0 none;
+		top: $mdc-select-height;
+		padding: 4px 0;
+		margin: 0;
+		@include mdc-elevation(8);
+		.react-select__option {
+			padding: 0 $mdc-list-side-padding;
+			height: 48px;
+			line-height: 48px;
+		}
+	}
+}
+/* end mdc override */
+

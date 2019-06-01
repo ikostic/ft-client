@@ -1,0 +1,99 @@
+@import "../../../_config.scss";
+@import "../../../_mixins.scss";
+
+.modal-set {
+	.mdc-dialog {
+		position: fixed;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		.mdc-dialog__container {
+			transform: none;
+			position: fixed;
+			// left: 20%;
+			top: 5%;
+			// right: 20%;
+			bottom: 0;
+			.mdc-dialog__surface {
+				border-top-left-radius: 10px;
+				border-top-right-radius: 10px;
+				border-bottom-left-radius: 0;
+				border-bottom-right-radius: 0;
+				max-width: none;
+				max-height: none;
+				display: block;
+				width: 650px;
+				height: 100%;
+				position: relative;
+				.mdc-dialog__content {
+					padding: 0 15px 5px 15px;
+					overflow-y: auto;
+					position: relative;
+					height: 80%;
+				}
+				.dialog-header {
+					padding: 0;
+					.grid-row.dialog-main-row {
+						grid-template-columns: auto 50px;
+						grid-template-rows: 80px;
+						justify-content: stretch;
+						padding-left: 15px;
+						padding-right: 15px;
+						.grid-cell {
+							align-self: center;
+						}
+						.material-icons {
+							cursor: pointer;
+						}
+						.dialog-title {
+							color: $mdc-theme-primary;
+							font-size: 26px;
+						}
+						.dialog-description {
+							color: $mdc-theme-secondary;
+						}
+						.dialog-close {
+							color: $mdc-theme-secondary;
+							line-height: 0px;
+							justify-self: end;
+							align-self: center;
+						}
+					}
+					border-bottom: $border-2-gray;
+				}
+				.dialog-header::before {
+					display: none;
+				}
+				.mdc-dialog__actions {
+					position: absolute;
+					width: 100%;
+					// background-color: grey;
+					bottom: 0;
+				}
+			}
+		}
+	}
+
+	$initialZIndex: 8;
+	$initialTop: 5%;
+	@for $i from 1 through 11 {
+		.mdc-dialog.offset#{$i} {
+			z-index: $initialZIndex + $i;
+			.mdc-dialog__container {
+				top: $initialTop + 5% * $i;
+			}
+		}
+	}
+}
+
+//below 650px
+@include resmax($content-width) {
+	.modal-set .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+		width: 100%;
+	}
+	.modal-set .mdc-dialog .mdc-dialog__container {
+		left: 2%;
+		right: 2%;
+	}
+}

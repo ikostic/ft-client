@@ -1,0 +1,9 @@
+@import "../../../_config.scss";
+
+.app-flex-top {
+	> .mdc-drawer {
+		top: $app-bar-height;
+		z-index: 1;
+		background-color:$mdc-theme-primary;
+	}
+}

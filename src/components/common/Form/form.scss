@@ -1,0 +1,9 @@
+
+//react-select override
+.react-select-container {
+	.react-select__value-container
+	{
+		overflow-y: auto;
+		height: 100%;
+	}
+}

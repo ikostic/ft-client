@@ -1,0 +1,28 @@
+@import "../../_config.scss";
+
+#register {
+	.links {
+		margin-bottom: 80px;
+		flex-wrap: wrap;
+	}
+	.form {
+		.mdc-text-field {
+			width: 100%;
+		}
+	}
+	.content {
+		align-items: center;
+	}
+	.form-label {
+		margin-bottom: 30px;
+		.big {
+			font-size: 27px;
+		}
+		.small {
+			font-size: 12px;
+		}
+	}
+	a {
+		color: $mdc-theme-primary;
+	}
+}
